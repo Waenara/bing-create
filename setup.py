@@ -10,9 +10,9 @@ setup(
     url='https://github.com/Waenara/bing-create',
     packages=find_packages(),
     install_requires=[
-        "setuptools~=68.2.0"
-        "aiofiles~=23.2.1"
-        "httpx~=0.27.0"
+        'setuptools~=68.2.0',
+        'aiofiles~=23.2.1',
+        'httpx~=0.27.0'
     ],
     classifiers=[
         'Intended Audience :: Developers',
