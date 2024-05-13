@@ -9,7 +9,11 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/Waenara/bing-create',
     packages=find_packages(),
-    install_requires=open('requirements.txt').readlines(),
+    install_requires=[
+        "setuptools~=68.2.0"
+        "aiofiles~=23.2.1"
+        "httpx~=0.27.0"
+    ],
     classifiers=[
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules',
