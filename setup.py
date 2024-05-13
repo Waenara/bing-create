@@ -32,5 +32,5 @@ setup(
         'console_scripts': [
             'bing_create = bing_create.main:main',
         ],
-    },
+    }
 )
