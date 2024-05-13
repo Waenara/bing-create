@@ -1,4 +1,4 @@
-# Image Creator
+# Bing Create
 This is a simple lightweight reverse engineered [Bing Image Creator](https://bing.com/create) API made in python that allows you to quickly generate high quality AI images. This package was inspired by [BingImageCreator package](https://github.com/acheong08/BingImageCreator) and the main goal is to make better version of it.
 
 **Advantages over the original package:**
@@ -14,12 +14,12 @@ You can use it from console\terminal or integrate it to your python project. To 
 ## Installation
 To install the package you can use pip:
 ```bash
-pip install image_creator
+pip install bing-create
 ```
 or you can clone the repository and install it manually:
 ```bash
-git clone 
-cd image_creator
+git clone https://github.com/Waenara/bing-create.git
+cd bing_create
 pip install .
 ```
 ## Usage
@@ -34,7 +34,7 @@ This will output your **_U** and **SRCHHPGUSR** cookies.
 If you are an average user you can use the package from the console\terminal. 
 After you installed the package and got the cookies. use the following command to get help, or you may enter arguments from below to generate images:
 ```bash
-image_creator
+bing-create
 ```
 **All arguments:**
 - `--u` - Your **_U** cookie
@@ -49,7 +49,7 @@ If you are a developer you can integrate the package to your python project. Her
 
 Synchronous:
 ```python
-from image_creator.main import ImageGenerator
+from bing_create.main import ImageGenerator
 
 # Create an instance of the ImageGenerator class
 generator = ImageGenerator(
@@ -73,7 +73,7 @@ generator.save(
 Asynchronous:
 ```python
 import asyncio
-from image_creator.main import AsyncImageGenerator
+from bing_create.main import AsyncImageGenerator
 
 
 async def main():

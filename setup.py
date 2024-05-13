@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 setup(
-    name='image_creator',
+    name='bing_create',
     version='0.0.1',
     author='Waenara',
     author_email='WaenaraCat@gmail.com',
     description='A simple lightweight AI Image Generator from text description using Bing Image Creator (DALL-E 3)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/Waenara/image-creator',
+    url='https://github.com/Waenara/bing-create',
     packages=find_packages(),
     install_requires=open('requirements.txt').readlines(),
     classifiers=[
@@ -23,14 +23,14 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ],
-    keywords='ai dall-e image bing api generator image_creator image-generator ig ic',
+    keywords='ai dall-e image bing api generator bing_create image-generator ig ic',
     project_urls={
-        'Support': 'https://github.com/Waenara/image-creator/issues'
+        'Support': 'https://github.com/Waenara/bing-create/issues'
     },
     python_requires='>=3.6',
     entry_points={
         'console_scripts': [
-            'image-creator = image_creator.main:main',
+            'bing_create = bing_create.main:main',
         ],
     },
 )
