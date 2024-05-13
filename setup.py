@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='bing_create',
-    version='0.0.1',
+    version='0.0.2',
     author='Waenara',
     author_email='WaenaraCat@gmail.com',
     description='A simple lightweight AI Image Generator from text description using Bing Image Creator (DALL-E 3)',
