@@ -92,11 +92,11 @@ class ImageGenerator:
                     break
 
             # Find and return image links
-            prev_len = len(images)
-            images += ["https://tse" + link.split("?w=")[0] for link in re.findall(
+            new_images = ["https://tse" + link.split("?w=")[0] for link in re.findall(
                 'src="https://tse([^"]+)"', response.text)]
-            if len(images) == prev_len:
-                raise Exception("🛑 No new images were generated")
+            if len(new_images) == 0:
+                raise Exception("🛑 No new images were generated for this cycle, please check your prompt")
+            images += new_images
             self.__log(f"✅ Successfully finished cycle {cycle} in {round(time.time() - start_time, 2)} seconds")
 
         self.__log(
@@ -211,8 +211,10 @@ class AsyncImageGenerator:
                     break
 
             # Find and return image links
-            images += ["https://tse" + link.split("?w=")[0] for link in re.findall(
+            new_images = ["https://tse" + link.split("?w=")[0] for link in re.findall(
                 'src="https://tse([^"]+)"', response.text)]
+            if len(new_images) == 0:
+                raise Exception("🛑 No new images were generated for this cycle, please check your prompt")
             self.__log(f"✅ Successfully finished cycle {cycle} in {round(time.time() - start_time, 2)} seconds")
 
         self.__log(
