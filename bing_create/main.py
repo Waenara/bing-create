@@ -92,8 +92,11 @@ class ImageGenerator:
                     break
 
             # Find and return image links
+            prev_len = len(images)
             images += ["https://tse" + link.split("?w=")[0] for link in re.findall(
                 'src="https://tse([^"]+)"', response.text)]
+            if len(images) == prev_len:
+                raise Exception("🛑 No new images were generated")
             self.__log(f"✅ Successfully finished cycle {cycle} in {round(time.time() - start_time, 2)} seconds")
 
         self.__log(
