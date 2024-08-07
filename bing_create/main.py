@@ -17,7 +17,7 @@ class ImageGenerator:
 
     def __init__(self, auth_cookie_u: str, auth_cookie_srchhpgusr: str, logging_enabled: bool = True):
         # Setting up httpx client
-        self.client: httpx.Client() = httpx.Client(
+        self.client: httpx.Client = httpx.Client(
             cookies={
                 '_U': auth_cookie_u,
                 'SRCHHPGUSR': auth_cookie_srchhpgusr
@@ -136,7 +136,7 @@ class AsyncImageGenerator:
 
     def __init__(self, auth_cookie_u: str, auth_cookie_srchhpgusr: str, logging_enabled: bool = True):
         # Setting up httpx client
-        self.client: httpx.AsyncClient() = httpx.AsyncClient(
+        self.client: httpx.AsyncClient = httpx.AsyncClient(
             cookies={
                 '_U': auth_cookie_u,
                 'SRCHHPGUSR': auth_cookie_srchhpgusr
