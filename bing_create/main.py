@@ -17,7 +17,7 @@ class ImageGenerator:
 
     def __init__(self, auth_cookie_u: str, auth_cookie_srchhpgusr: str, logging_enabled: bool = True):
         # Setting up httpx client
-        self.client: httpx.Client() = httpx.Client(
+        self.client: httpx.Client = httpx.Client(
             cookies={
                 '_U': auth_cookie_u,
                 'SRCHHPGUSR': auth_cookie_srchhpgusr
@@ -92,8 +92,11 @@ class ImageGenerator:
                     break
 
             # Find and return image links
-            images += ["https://tse" + link.split("?w=")[0] for link in re.findall(
+            new_images = ["https://tse" + link.split("?w=")[0] for link in re.findall(
                 'src="https://tse([^"]+)"', response.text)]
+            if len(new_images) == 0:
+                raise Exception("🛑 No new images were generated for this cycle, please check your prompt")
+            images += new_images
             self.__log(f"✅ Successfully finished cycle {cycle} in {round(time.time() - start_time, 2)} seconds")
 
         self.__log(
@@ -133,7 +136,7 @@ class AsyncImageGenerator:
 
     def __init__(self, auth_cookie_u: str, auth_cookie_srchhpgusr: str, logging_enabled: bool = True):
         # Setting up httpx client
-        self.client: httpx.AsyncClient() = httpx.AsyncClient(
+        self.client: httpx.AsyncClient = httpx.AsyncClient(
             cookies={
                 '_U': auth_cookie_u,
                 'SRCHHPGUSR': auth_cookie_srchhpgusr
@@ -208,8 +211,10 @@ class AsyncImageGenerator:
                     break
 
             # Find and return image links
-            images += ["https://tse" + link.split("?w=")[0] for link in re.findall(
+            new_images = ["https://tse" + link.split("?w=")[0] for link in re.findall(
                 'src="https://tse([^"]+)"', response.text)]
+            if len(new_images) == 0:
+                raise Exception("🛑 No new images were generated for this cycle, please check your prompt")
             self.__log(f"✅ Successfully finished cycle {cycle} in {round(time.time() - start_time, 2)} seconds")
 
         self.__log(
